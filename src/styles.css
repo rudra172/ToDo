@@ -1,0 +1,14 @@
+/* svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  } */
+
+   body{
+    background-image: url(./assets/781917.jpg);
+    /* width: 1550px; */
+    height: 500px;
+
+} 

@@ -1,0 +1,54 @@
+<div class="container-fluid mt-4 mb-5">
+    <span class="navbar-brand text-white fw-bold ms-3">
+      Welcome {{user}}
+    </span>
+  </div>
+<svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+  <title>Gray Clouds Background</title>
+  <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+</svg>
+<div class="container mt-3" id="input_container">
+  <div class="row">
+      <div class="col col-11">
+          <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+              <input [(ngModel)]="task" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <!-- <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Data</span>
+              <input [(ngModel)]="data_input" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div> -->
+      </div>
+      <div class="col col-1">
+          <button class="btn btn-success" id="add_btn" type="submit" (click)="addTask()"(click)="clearBox()">+add</button>
+      </div>
+  </div>
+</div>
+<div class="container mt-5" id="todo-new">
+<div class="input-group mb-3 d-grid"*ngFor="let t of tasks; let i= index">
+  <button style="text-align: start;" class="form-control" type="button" (click)="editTask(i)" (click)="clearBox()"data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 10px;"><span>{{t}}</span></button>
+  <button  (click)="removeTask(i)" class="input-group-text" >
+    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+    width="20" height="20"
+    viewBox="0,0,256,256"
+    style="fill:#000000;">
+    <g fill="#ff0000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(9.84615,9.84615)"><path d="M11.5,-0.03125c-1.95703,0 -3.53125,1.625 -3.53125,3.59375v0.4375h-3.96875c-0.55078,0 -1,0.44922 -1,1v1h-1v2h2v15c0,1.64453 1.35547,3 3,3h12c1.64453,0 3,-1.35547 3,-3v-15h2v-2h-1v-1c0,-0.55078 -0.44922,-1 -1,-1h-3.96875v-0.4375c0,-1.96875 -1.57422,-3.59375 -3.53125,-3.59375zM11.5,2.03125h3c0.80469,0 1.46875,0.65625 1.46875,1.53125v0.4375h-5.9375v-0.4375c0,-0.875 0.66406,-1.53125 1.46875,-1.53125zM6,8h5.125c0.125,0.01172 0.24609,0.03125 0.375,0.03125h3c0.12891,0 0.25,-0.01953 0.375,-0.03125h5.125v15c0,0.5625 -0.4375,1 -1,1h-12c-0.5625,0 -1,-0.4375 -1,-1zM8,10v12h2v-12zM12,10v12h2v-12zM16,10v12h2v-12z"></path></g></g>
+    </svg>
+  </button>
+   <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Task:</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body"> 
+        <div class="input-group  p-4">
+          <input id="task" [(ngModel)]="etask"  class=" form-control" type="text" placeholder="Enter the task" >
+          <button (click)="updateTask(i)" (click)="clearBox()" class="btn btn-success rounded-end" data-bs-dismiss="modal" type="button" >Save changes</button><br>
+        </div> 
+      </div>
+</div>
+
+</div>
